@@ -29,7 +29,7 @@ module sarlogic(clk, reset, d, bitout, conv_done);
   assign bitout = bitout_q;
   assign conv_done = conv_done_q;
   
-  always @(posedge clk, negedge reset) begin
+  always @(posedge clk) begin
     if(reset)
       begin
         bitout_q <= 4'b0000;
@@ -40,7 +40,7 @@ module sarlogic(clk, reset, d, bitout, conv_done);
     conv_done_q <= conv_done_d;
   end
   
-  always @(posedge clk, negedge reset) begin
+  always @(posedge clk) begin
     if(reset)
       begin
         state_q <= 3'b000;
