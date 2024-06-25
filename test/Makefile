@@ -12,6 +12,7 @@ ifneq ($(GATES),yes)
 # RTL simulation:
 SIM_BUILD				= sim_build/rtl
 VERILOG_SOURCES += $(addprefix $(SRC_DIR)/,$(PROJECT_SOURCES))
+VERILOG_SOURCES += $(addprefix $(SRC_DIR)/,sarlogic.v)
 COMPILE_ARGS 		+= -I$(SRC_DIR)
 
 else
@@ -33,6 +34,7 @@ endif
 
 # Include the testbench sources:
 VERILOG_SOURCES += $(PWD)/tb.v
+VERILOG_SOURCES += $(PWD)/sarlogic_tb.v
 TOPLEVEL = tb
 
 # MODULE is the basename of the Python test file
