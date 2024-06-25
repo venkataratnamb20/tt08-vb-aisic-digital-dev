@@ -59,6 +59,7 @@ module sarlogic(clk, reset, d, bitout, conv_done);
         end
       3'b001: 
         begin
+          bitout_d[1:0] = bitout_q[1:0];
           bitout_d[2] = 1'b1;
           bitout_d[3] = d;
           conv_done_d = 0;
@@ -66,8 +67,10 @@ module sarlogic(clk, reset, d, bitout, conv_done);
         end
       3'b010: 
         begin
+          bitout_d[0] = bitout_q[0];
           bitout_d[1] = 1'b1;
           bitout_d[2] = d;
+          bitout_d[3] = bitout_q[3];
           conv_done_d = 0;
           state_d = state_q + 1;
         end
@@ -75,11 +78,13 @@ module sarlogic(clk, reset, d, bitout, conv_done);
         begin
           bitout_d[0] = 1'b1;
           bitout_d[1] = d;
+          bitout_d[3:2] = bitout_q[3:2];
           conv_done_d = 0;
           state_d = state_q + 1;
         end
       3'b100: 
         begin
+          bitout_d[3:1] = bitout_q[3:1];
           bitout_d[0] = d;
           conv_done_d = 1;
           state_d = 3'b000;
