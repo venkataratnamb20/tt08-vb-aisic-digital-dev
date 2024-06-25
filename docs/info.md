@@ -1,20 +1,14 @@
-<!---
-
-This file is used to generate your project datasheet. Please fill in the information below and delete any unused
-sections.
-
-You can also include images in this folder and reference them in the markdown. Each image must be less than
-512 kb in size, and the combined size of all images must be less than 1 MB.
--->
-
+# ADC: Analog to Digital COnverter
 ## How it works
-
+Successive Approximation Register Logic
 Explain how your project works
 
 ## How to test
+Apply clk, data (d) and reset(1-reset, 0-functional) then monitor the 4Bit data ate the output.
+`conv_done`, indicates when conversion completed.
 
-Explain how to use your project
+The logic is part of 4Bit SAR ADC.
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+No External hardware required except the hardware required to monitor the 4Bit data. 
