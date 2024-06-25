@@ -29,5 +29,5 @@ module tt_um_example (
         .reset(~rst_n), 
         .d(ui_in[0]),
         .bitout(uo_out[3:0]),
-        .conv_done(uo_out[4]);
+        .conv_done(uo_out[4]));
 endmodule
