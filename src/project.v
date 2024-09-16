@@ -18,8 +18,8 @@ module tt_um_example (
 
   // All output pins must be assigned. If not used, assign to 0.
   // assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
-    assign uo_out[7:5] = 0;
-  assign uio_out = 0;
+  //  assign uo_out[7:5] = 0;
+  assign uio_out[7:5] = 0;
   assign uio_oe  = 0;
 
   // List all unused inputs to prevent warnings
@@ -28,6 +28,7 @@ module tt_um_example (
         .clk(clk), 
         .reset(~rst_n), 
         .d(ui_in[0]),
-        .bitout(uo_out[3:0]),
-        .conv_done(uo_out[4]));
+        .bitout(uo_out[7:0]),
+        .bitout(uio_out[3:0]),
+        .conv_done(uio_out[4]));
 endmodule

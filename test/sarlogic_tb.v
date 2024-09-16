@@ -24,7 +24,7 @@ module sarlogic_tb;
   reg clk = 0;
   always #1 clk = !clk;
 
-  wire [3:0] bitout;
+  wire [11:0] bitout;
   wire conv_done;
 
   sarlogic sar (clk, reset, d, bitout, conv_done);
