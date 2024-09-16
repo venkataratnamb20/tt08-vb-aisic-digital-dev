@@ -22,13 +22,15 @@ module tt_um_example (
   assign uio_out[7:5] = 0;
   assign uio_oe  = 0;
 
+  wire bitout_w[11:0];
+  assign bitout_w = {uo_out[7:0], uio_out[3:0]};
+
   // List all unused inputs to prevent warnings
   // wire _unused = &{ena, clk, rst_n, 1'b0};
     sarlogic sarlogic_i0(
         .clk(clk), 
         .reset(~rst_n), 
         .d(ui_in[0]),
-        .bitout[7:0]({uo_out[7:0], uio_out[3:0]}),
-      //  .bitout[11:8](uio_out[3:0]),
+        .bitout[7:0](bitout_w),
         .conv_done(uio_out[4]));
 endmodule
